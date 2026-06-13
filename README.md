@@ -1,0 +1,254 @@
+[index (1).html](https://github.com/user-attachments/files/28912922/index.1.html)
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Au fil de l'eau... | Catherine Bréhard</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family: Georgia, serif;
+background:#faf9f6;
+color:#222;
+line-height:1.7;
+}
+
+.hero{
+height:100vh;
+background:url('images/images/images/images/images/aquarelles/IMG_0045.jpeg') center center/cover;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+position:relative;
+}
+
+.hero::before{
+content:"";
+position:absolute;
+inset:0;
+background:rgba(0,0,0,.35);
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+color:white;
+max-width:700px;
+padding:20px;
+}
+
+.hero h1{
+font-size:4rem;
+font-weight:normal;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:1.2rem;
+}
+
+.btn{
+display:inline-block;
+margin-top:30px;
+padding:14px 28px;
+background:white;
+color:#222;
+text-decoration:none;
+border-radius:40px;
+}
+
+section{
+padding:90px 8%;
+}
+
+.intro{
+max-width:850px;
+margin:auto;
+text-align:center;
+font-size:1.2rem;
+}
+
+h2{
+text-align:center;
+font-size:2.5rem;
+font-weight:normal;
+margin-bottom:50px;
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.gallery img{
+width:100%;
+height:320px;
+object-fit:cover;
+cursor:pointer;
+transition:.3s;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.gallery img:hover{
+transform:scale(1.03);
+}
+
+.lightbox{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.92);
+justify-content:center;
+align-items:center;
+z-index:999;
+}
+
+.lightbox img{
+max-width:90%;
+max-height:90%;
+}
+
+footer{
+padding:60px 20px;
+text-align:center;
+background:white;
+}
+
+footer a{
+color:#222;
+text-decoration:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="hero">
+<div class="hero-content">
+<h1>Au fil de l'eau...</h1>
+<p>Aquarelles de Catherine Bréhard</p>
+<img src="images/images/IMG_0045.jpeg" alt="Le Passage"style="width:90%;max-width:900px;display:block;margin:30px auto;">
+<h2>Le Passage</h2>  
+
+<a href="#galerie" class="btn">
+Entrer dans la galerie
+</a>
+</div>
+</header>
+
+<section class="intro">
+
+<p>
+
+J'explore l'aquarelle comme un dialogue entre l'eau,
+le pigment et le temps.
+
+Les formes émergent librement,
+laissant apparaître des paysages intérieurs,
+des horizons silencieux et des chemins fragiles.
+
+Votre regard est invité à voyager.
+
+</p>
+
+</section>
+
+<section id="galerie">
+
+<h2>Galerie Signature</h2>
+
+<div class="gallery">
+
+<img src="images/images/aquarelles/IMG_0045.jpeg">
+<img src="images/images/aquarelles/IMG_0061.jpeg">
+<img src="images/images/aquarelles/IMG_0062.jpeg">
+<img src="images/images/aquarelles/IMG_0064.jpeg">
+<img src="images/images/aquarelles/IMG_0065.jpeg">
+<img src="images/images/aquarelles/IMG_9301.jpeg">
+<img src="images/images/aquarelles/IMG_9379.jpeg">
+<img src="images/images/aquarelles/IMG_9380.jpeg">
+<img src="images/images/aquarelles/IMG_9398.jpeg">
+<img src="images/images/aquarelles/IMG_9411.jpeg">
+<img src="images/images/aquarelles/IMG_9519.jpeg">
+<img src="images/images/aquarelles/IMG_9569.jpeg">
+<img src="images/images/aquarelles/IMG_9586.jpeg">
+
+</div>
+
+</section>
+
+<section>
+
+<h2>À propos</h2>
+
+<div class="intro">
+
+<p>
+Chaque aquarelle naît d'une rencontre entre le geste,
+l'eau et le hasard.
+
+J'aime explorer les espaces ouverts,
+les chemins suspendus,
+les silhouettes discrètes
+et les paysages qui invitent à l'imaginaire.
+</p>
+
+</div>
+
+</section>
+
+<footer>
+
+<p><strong>Catherine Bréhard</strong></p>
+
+<p>
+📧
+<a href="mailto:catherine.brehard@gmail.com">
+catherine.brehard@gmail.com
+</a>
+</p>
+
+<p>
+📷 @aufildel'eau.aquarelle
+</p>
+
+</footer>
+
+<div class="lightbox" id="lightbox">
+<img id="lightbox-img">
+</div>
+
+<script>
+
+const images=document.querySelectorAll(".gallery img");
+const lightbox=document.getElementById("lightbox");
+const lightboxImg=document.getElementById("lightbox-img");
+
+images.forEach(img=>{
+img.addEventListener("click",()=>{
+lightbox.style.display="flex";
+lightboxImg.src=img.src;
+});
+});
+
+lightbox.addEventListener("click",()=>{
+lightbox.style.display="none";
+});
+
+</script>
+
+</body>
+</html>
