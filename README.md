@@ -1,204 +1,536 @@
-[index.html](https://github.com/user-attachments/files/28912922/index.1.html)
+[index3.html](https://github.com/user-attachments/files/29004981/index3.html)
+<!DOCTYPE html>
 <html lang="fr">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Au fil de l'eau... | Catherine Bréhard</title>
 
 <style>
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 body{
-font-family: Georgia, serif;
-background:#faf9f6;
-color:#222;
-line-height:1.7;
+    font-family:Georgia, serif;
+    background:#faf9f6;
+    color:#222;
+    line-height:1.7;
 }
 
 .hero{
-height:100vh;
-background:url('images/images/images/images/images/aquarelles/IMG_0045.jpeg') center center/cover;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-position:relative;
+    min-height:100vh;
+    padding-top:40px;
+    background:url('images/images/aquarelles/IMG_0045.jpeg') center center/cover;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    text-align:center;
+    position:relative;
 }
 
 .hero::before{
-content:"";
-position:absolute;
-inset:0;
-background:rgba(0,0,0,.35);
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.35);
 }
 
 .hero-content{
-position:relative;
-z-index:2;
-color:white;
-max-width:700px;
-padding:20px;
+    position:relative;
+    z-index:2;
+    color:white;
+    max-width:700px;
+    padding:20px;
 }
 
 .hero h1{
-font-size:4rem;
-font-weight:normal;
-margin-bottom:20px;
+    font-size:4rem;
+    font-weight:normal;
+    margin-bottom:20px;
 }
 
 .hero p{
-font-size:1.2rem;
+    font-size:1.2rem;
+}
+
+.hero img{
+    width:95%;
+    max-width:550px;
+    display:block;
+    margin:40px auto;
 }
 
 .btn{
-display:inline-block;
-margin-top:30px;
-padding:14px 28px;
-background:white;
-color:#222;
-text-decoration:none;
-border-radius:40px;
+    display:inline-block;
+    margin-top:30px;
+    padding:14px 28px;
+    background:white;
+    color:#222;
+    text-decoration:none;
+    border-radius:40px;
 }
 
 section{
-padding:90px 8%;
+    padding:90px 8%;
 }
 
 .intro{
-max-width:850px;
-margin:auto;
-text-align:center;
-font-size:1.2rem;
+    max-width:850px;
+    margin:auto;
+    text-align:center;
+    font-size:1.35rem;
+    line-height:2;
 }
 
 h2{
-text-align:center;
-font-size:2.5rem;
-font-weight:normal;
-margin-bottom:50px;
+    text-align:center;
+    font-size:2.5rem;
+    font-weight:normal;
+    margin-bottom:50px;
 }
 
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
+/* Présentation des grandes œuvres */
+
+.oeuvre-principale{
+    text-align:center;
+    margin-bottom:60px;
 }
 
-.gallery img{
-width:100%;
-height:320px;
-object-fit:cover;
-cursor:pointer;
-transition:.3s;
-box-shadow:0 10px 25px rgba(0,0,0,.08);
+.oeuvre-principale img{
+    max-width:350px;
+    width:100%;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
 }
 
-.gallery img:hover{
-transform:scale(1.03);
+.oeuvre-principale h3{
+    margin-top:20px;
+    font-size:1.6rem;
+    font-weight:normal;
 }
 
-.lightbox{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,.92);
-justify-content:center;
-align-items:center;
-z-index:999;
+/* Grille des petits formats */
+
+.petits-formats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:40px;
+    justify-items:center;
 }
 
-.lightbox img{
-max-width:90%;
-max-height:90%;
+.petits-formats .oeuvre{
+    text-align:center;
+    max-width:220px;
 }
 
+.petits-formats img{
+    width:220px;
+    height:auto;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.petits-formats h3{
+    font-size:1.2rem;
+    margin-top:15px;
+    font-weight:normal;
+}
+
+.details{
+    font-style:italic;
+    font-size:0.95rem;
+}
+
+/* Adaptation téléphone */
+
+@media(max-width:900px){
+    .petits-formats{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:600px){
+    .petits-formats{
+        grid-template-columns:1fr;
+    }
+}
 footer{
-padding:60px 20px;
-text-align:center;
-background:white;
+    padding:60px 20px;
+    text-align:center;
+    background:white;
 }
 
 footer a{
-color:#222;
-text-decoration:none;
+    color:#222;
+    text-decoration:none;
+}
+
+.lightbox{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.92);
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+}
+
+.lightbox img{
+    max-width:90%;
+    max-height:90%;
 }
 
 </style>
 </head>
 
+
 <body>
 
-<header class="hero">
-<div class="hero-content">
-<h1>Au fil de l'eau...</h1>
-<p>Aquarelles de Catherine Bréhard</p>
-<img src="images/images/IMG_0045.jpeg" alt="Le Passage"style="width:90%;max-width:900px;display:block;margin:30px auto;">
-<h2>Le Passage</h2>  
 
-<a href="#galerie" class="btn">
-Entrer dans la galerie
-</a>
+<header class="hero">
+
+<div class="hero-content">
+
+<h1>Au fil de l'eau...</h1>
+
+<p>
+Aquarelles de Catherine Bréhard
+</p>
+
+
+<img src="images/images/IMG_0045.jpeg"
+alt="Le Passage">
+
+
+<p style="font-style:italic; margin-top:-25px; margin-bottom:25px;">
+Aquarelles originales sur papier 100 % coton
+</p>
+
 </div>
+
 </header>
+
 
 <section class="intro">
 
 <p>
 
-J'explore l'aquarelle comme un dialogue entre l'eau,
-le pigment et le temps.
+J'explore l'aquarelle comme un dialogue entre l'eau,<br>
+le pigment et le temps.<br><br>
 
-Les formes émergent librement,
-laissant apparaître des paysages intérieurs,
-des horizons silencieux et des chemins fragiles.
+Les formes émergent librement,<br>
+laissant apparaître des paysages intérieurs,<br>
+des horizons silencieux et des chemins fragiles.<br><br>
 
-Votre regard est invité à voyager.
+Le regard est invité à voyager.
 
 </p>
 
+
+<a href="#galerie" class="btn">
+Entrer dans la galerie
+</a>
+
 </section>
+
 
 <section id="galerie">
 
-<h2>Galerie Signature</h2>
+<h2>
+Galerie Signature
+</h2>
 
-<div class="gallery">
 
-<img src="images/images/aquarelles/IMG_0045.jpeg">
-<img src="images/images/aquarelles/IMG_0061.jpeg">
-<img src="images/images/aquarelles/IMG_0062.jpeg">
-<img src="images/images/aquarelles/IMG_0064.jpeg">
-<img src="images/images/aquarelles/IMG_0065.jpeg">
-<img src="images/images/aquarelles/IMG_9301.jpeg">
-<img src="images/images/aquarelles/IMG_9379.jpeg">
-<img src="images/images/aquarelles/IMG_9380.jpeg">
-<img src="images/images/aquarelles/IMG_9398.jpeg">
-<img src="images/images/aquarelles/IMG_9411.jpeg">
-<img src="images/images/aquarelles/IMG_9519.jpeg">
-<img src="images/images/aquarelles/IMG_9569.jpeg">
-<img src="images/images/aquarelles/IMG_9586.jpeg">
+<!-- Œuvre d'ouverture -->
+
+<div class="oeuvre-principale">
+
+<img src="images/images/aquarelles/IMG_0045.jpeg"
+alt="Le Passage">
+
+<h3>
+Le Passage
+</h3>
+
+<p class="details">
+23 × 31 cm
+</p>
+
+<p class="details">
+Aquarelle originale sur papier 100 % coton
+</p>
+
+</div>
+
+
+<!-- Deuxième œuvre -->
+
+<div class="oeuvre-principale">
+
+<img src="images/images/aquarelles/IMG_0061.jpeg"
+alt="Le Premier Rivage">
+
+<h3>
+Le Premier Rivage
+</h3>
+
+<p class="details">
+32 × 32 cm
+</p>
+
+<p class="details">
+Aquarelle originale sur papier 100 % coton
+</p>
+
+</div>
+
+
+<!-- Début de la grille des petits formats -->
+
+<div class="petits-formats">
+
+<div class="oeuvre">
+
+<img src="images/images/aquarelles/IMG_0062.jpeg"
+alt="La Traversée">
+
+<h3>
+La Traversée
+</h3>
+
+<p class="details">
+15 × 15 cm
+</p>
+
+<p class="details">
+Aquarelle originale sur papier 100 % coton
+</p>
+
+</div>
+
+
+<div class="oeuvre">
+
+<img src="images/images/aquarelles/IMG_0064.jpeg"
+alt="Entre les Eaux">
+
+<h3>
+Entre les Eaux
+</h3>
+
+<p class="details">
+15 × 15 cm
+</p>
+
+<p class="details">
+Aquarelle originale sur papier 100 % coton
+</p>
+
+</div>
+
+
+<div class="oeuvre">
+
+<img src="images/images/aquarelles/IMG_0065.jpeg"
+alt="Horizon Secret">
+
+<h3>
+Horizon Secret
+</h3>
+
+<p class="details">
+15 × 15 cm
+</p>
+
+<p class="details">
+Aquarelle originale sur papier 100 % coton
+</p>
+
+</div>
+
+
+<div class="oeuvre">
+
+<img src="images/images/aquarelles/IMG_9301.jpeg"
+alt="Le Souffle du Large">
+
+<h3>
+Le Souffle du Large
+</h3>
+
+<p class="details">
+20 × 20cm
+</p>
+
+<p class="details">
+Aquarelle originale sur papier 100 % coton
+</p>
+
+</div>
+
+
+<div class="oeuvre">
+
+<img src="images/images/aquarelles/IMG_9379.jpeg"
+alt="Les Brumes du Matin">
+
+<h3>
+Les Brumes du Matin
+</h3>
+
+<p class="details">
+20 × 20 cm
+</p>
+
+<p class="details">
+Aquarelle originale sur papier 100 % coton
+</p>
+
+</div>
+
+
+<div class="oeuvre">
+
+<img src="images/images/aquarelles/IMG_9380.jpeg"
+alt="Chemin de Lumière">
+
+<h3>
+Chemin de Lumière
+</h3>
+
+<p class="details">
+47 × 29 cm
+</p>
+
+<p class="details">
+Aquarelle originale sur papier 100 % coton
+</p>
+
+</div>
+
+
+<div class="oeuvre">
+
+<img src="images/images/aquarelles/IMG_9398.jpeg"
+alt="Silence Bleu">
+
+<h3>
+Silence Bleu
+</h3>
+
+<p class="details">
+20 × 20 cm
+</p>
+
+<p class="details">
+Aquarelle originale sur papier 100 % coton
+</p>
+
+</div>
+
+
+<div class="oeuvre">
+
+<img src="images/images/aquarelles/IMG_9411.jpeg"
+alt="Au-delà des Rives">
+
+<h3>
+Au-delà des Rives
+</h3>
+
+<p class="details">
+37 × 31 cm
+</p>
+
+<p class="details">
+Aquarelle originale sur papier 100 % coton
+</p>
+
+</div>
+<div class="oeuvre">
+
+<img src="images/images/aquarelles/IMG_9519.jpeg"
+alt="Le Temps de l'Eau">
+
+<h3>
+Le Temps de l'Eau
+</h3>
+
+<p class="details">
+68 × 25 cm
+</p>
+
+<p class="details">
+Aquarelle originale sur papier 100 % coton
+</p>
+
+</div>
+
+
+<div class="oeuvre">
+
+<img src="images/images/aquarelles/IMG_9569.jpeg"
+alt="Vers l'Horizon">
+
+<h3>
+Vers l'Horizon
+</h3>
+
+<p class="details">
+25 × 25 cm
+</p>
+
+<p class="details">
+Aquarelle originale sur papier 100 % coton
+</p>
+
+</div>
+
+
+<div class="oeuvre">
+
+<img src="images/images/aquarelles/IMG_9586.jpeg"
+alt="Au fil de l'eau">
+
+<h3>
+Au fil de l'eau
+</h3>
+
+<p class="details">
+32 × 25 cm
+</p>
+
+<p class="details">
+Aquarelle originale sur papier 100 % coton
+</p>
+
+</div>
+
 
 </div>
 
 </section>
 
+
 <section>
 
-<h2>À propos</h2>
+<h2>
+À propos
+</h2>
+
 
 <div class="intro">
 
 <p>
 Chaque aquarelle naît d'une rencontre entre le geste,
-l'eau et le hasard.
+l'eau et le hasard.<br><br>
 
 J'aime explorer les espaces ouverts,
 les chemins suspendus,
@@ -210,9 +542,12 @@ et les paysages qui invitent à l'imaginaire.
 
 </section>
 
+
 <footer>
 
-<p><strong>Catherine Bréhard</strong></p>
+<p>
+<strong>Catherine Bréhard</strong>
+</p>
 
 <p>
 📧
@@ -222,33 +557,42 @@ catherine.brehard@gmail.com
 </p>
 
 <p>
-📷 @aufildel'eau.aquarelle
+📷 @aufildeleau-aquarelles
 </p>
 
 </footer>
 
+
 <div class="lightbox" id="lightbox">
-<img id="lightbox-img">
+<img id="lightbox-img" alt="Agrandissement de l'œuvre">
 </div>
+
 
 <script>
 
-const images=document.querySelectorAll(".gallery img");
-const lightbox=document.getElementById("lightbox");
-const lightboxImg=document.getElementById("lightbox-img");
+const images = document.querySelectorAll(
+".oeuvre-principale img, .petits-formats img"
+);
 
-images.forEach(img=>{
-img.addEventListener("click",()=>{
-lightbox.style.display="flex";
-lightboxImg.src=img.src;
-});
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+
+
+images.forEach(img => {
+    img.addEventListener("click", () => {
+        lightbox.style.display = "flex";
+        lightboxImg.src = img.src;
+    });
 });
 
-lightbox.addEventListener("click",()=>{
-lightbox.style.display="none";
+
+lightbox.addEventListener("click", () => {
+    lightbox.style.display = "none";
 });
 
 </script>
 
+
 </body>
+
 </html>
